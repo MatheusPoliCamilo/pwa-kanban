@@ -70,9 +70,20 @@
     this.style.opacity = '0.4';
   }
 
+  function handleDragEnter(e) {
+    this.classList.add('over');
+  }
+
+  function handleDragLeave(e) {
+    this.classList.remove('over');
+  }
+
   const cols = document.querySelectorAll('[draggable]');
   [].forEach.call(cols, function (col) {
     col.addEventListener('dragstart', handleDragStart, false);
+    col.addEventListener('dragenter', handleDragEnter, false);
+    col.addEventListener('dragleave', handleDragLeave, false);
+    col.addEventListener('dragover', handleDragOver, false);
   });
 </script>
 
