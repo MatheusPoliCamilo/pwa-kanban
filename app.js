@@ -1,8 +1,16 @@
 const express = require('express');
 const app = new express();
 
+
+
 app.use("/public", express.static(__dirname + '/public/'));
 app.use("/sw.js", express.static(__dirname + '/public/sw.js'));
+
+app.get("*", function(request, response){
+  if(!request.secure){
+    response.redirect("https://" + request.headers.host + request.url);
+  }
+});
 
 app.get('/', function (request, response) {
   response.sendFile('index.html', { root: `${__dirname}/public/` });
