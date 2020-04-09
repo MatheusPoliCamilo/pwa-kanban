@@ -1,0 +1,8 @@
+.column {
+  background-color: #eee;
+  height: 500px;
+}
+
+[draggable] {
+  cursor: move;
+}
