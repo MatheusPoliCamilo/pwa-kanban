@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Progressive Web App de quadro Kanban.">
+  <meta name="theme-color" content="#2F3BA2">
+  <link rel="manifest" href="/public/manifest.json">
+</head>
+
+<body>
+  <h1>PWA Kanban</h1>
+</body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.info('registered sw', reg))
+      .catch(err => console.error('error registering sw', err));
+  } else {
+    console.log('ServiceWorker não é suportado.');
+  }
+</script>
+
+</html>
