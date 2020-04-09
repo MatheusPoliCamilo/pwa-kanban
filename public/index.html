@@ -57,6 +57,14 @@
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.info('registered sw', reg))
+      .catch(err => console.error('error registering sw', err));
+  } else {
+    console.log('ServiceWorker não é suportado.');
+  }
+
   function handleDragStart(e) {
     console.log('Arrastou', e)
     this.style.opacity = '0.4';
