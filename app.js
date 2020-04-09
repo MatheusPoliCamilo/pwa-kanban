@@ -1,5 +1,3 @@
-const http = require('http');
-// let fs = require('fs');
 const express = require('express');
 const app = new express();
 
@@ -10,8 +8,8 @@ app.get('/', function (request, response) {
   response.sendFile('index.html', { root: `${__dirname}/public/` });
 });
 
-app.get('/favicon.ico', async function (req, res) {
-  res.redirect(301, '/public/img/favicon.ico')
+app.get('/favicon.ico', async function (request, response) {
+  response.redirect(301, '/public/favicon.ico');
 });
 
 app.listen(3000, '0.0.0.0', function () {
